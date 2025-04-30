@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SVG Bundles Mini Catalog | Creative Fabrica Affiliate</title>
+  <meta name="description" content="Browse our mini catalog of top SVG bundles for Cricut & Silhouette. Filter by category and save up to 90% with our exclusive affiliate deals!" />
+  <meta name="p:domain_verify" content="YOUR_PINTEREST_VERIFICATION_TOKEN">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+  <script>
+    // Pass UTM parameters from Pinterest Pin into affiliate links
+    function trackUTM() {
+      const params = new URLSearchParams(location.search).toString();
+      document.querySelectorAll('[data-basehref]').forEach(a => {
+        a.href = a.dataset.basehref + (params ? '&' + params : '');
+      });
+    }
+    // Filter cards by category
+    function filterCategory(cat) {
+      document.querySelectorAll('.catalog-card').forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.category === cat) ? 'block' : 'none';
+      });
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('bg-indigo-600', 'text-white'));
+      document.getElementById('btn-' + cat).classList.add('bg-indigo-600','text-white');
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      trackUTM();
+      filterCategory('all'); // default
+    });
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- HEADER -->
+  <header class="py-12 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-2">🔥 SVG Bundles Mini Catalog</h1>
+    <p class="text-lg max-w-2xl mx-auto">Explore curated SVG bundle categories for Cricut &amp; Silhouette. Click, save, and create!</p>
+  </header>  <!-- CATEGORY FILTERS -->  <nav class="flex flex-wrap justify-center gap-3 mb-8 px-4">
+    <button id="btn-all" onclick="filterCategory('all')" class="filter-btn px-4 py-2 rounded-full bg-indigo-600 text-white">All</button>
+    <button id="btn-floral" onclick="filterCategory('floral')" class="filter-btn px-4 py-2 rounded-full hover:bg-indigo-100">Floral</button>
+    <button id="btn-monogram" onclick="filterCategory('monogram')" class="filter-btn px-4 py-2 rounded-full hover:bg-indigo-100">Monogram</button>
+    <button id="btn-holiday" onclick="filterCategory('holiday')" class="filter-btn px-4 py-2 rounded-full hover:bg-indigo-100">Holiday</button>
+    <button id="btn-animals" onclick="filterCategory('animals')" class="filter-btn px-4 py-2 rounded-full hover:bg-indigo-100">Animals</button>
+  </nav>  <!-- CATALOG GRID -->  <section id="catalog" class="max-w-6xl mx-auto px-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Example Card: Floral -->
+    <a data-basehref="https://www.creativefabrica.com/ref/your_id/?fp=floral-svg-bundle" data-category="floral" class="catalog-card group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all">
+      <img src="images/floral-bundle.webp" alt="Floral SVG Bundle" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors"></div>
+      <div class="absolute bottom-0 p-4 text-white">
+        <h2 class="text-2xl font-bold">Floral SVG Bundle – 200 Designs</h2>
+        <p class="mt-1 opacity-90">Elegant flowers &amp; wreaths</p>
+      </div>
+    </a><!-- Example Card: Monogram -->
+<a data-basehref="https://www.creativefabrica.com/ref/your_id/?fp=monogram-svg-bundle" data-category="monogram" class="catalog-card group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all">
+  <img src="images/monogram-bundle.webp" alt="Monogram SVG Bundle" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+  <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors"></div>
+  <div class="absolute bottom-0 p-4 text-white">
+    <h2 class="text-2xl font-bold">Monogram SVG Bundle – 500 Designs</h2>
+    <p class="mt-1 opacity-90">Stylized initials &amp; frames</p>
+  </div>
+</a>
+
+<!-- Placeholder for n8n-injected cards -->
+
+  </section>  <!-- COUPON SECTION -->  <section class="mt-16 bg-indigo-600 text-white py-10 text-center">
+    <h2 class="text-3xl font-bold mb-2">Exclusive 30% Off Coupon</h2>
+    <p>Use code <span class="font-mono bg-white/10 px-2 py-1 rounded">PINSVG30</span> at checkout on Creative Fabrica.</p>
+  </section>  <!-- FOOTER -->  <footer class="mt-16 py-8 text-center text-sm text-gray-500">
+    <p>&copy; 2025 SVG Crafters. All links contain affiliate codes.</p>
+  </footer>  <!-- Pinterest Save Button -->  <script async defer src="https://assets.pinterest.com/js/pinit.js"></script></body>
+</html>
