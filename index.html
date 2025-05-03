@@ -20,12 +20,20 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Banner (заменяет header) -->
+  <!-- Banner -->
   <img src="/svg-bundles-catalog/data/Bundles.png" alt="Premium SVG Bundles" class="w-full shadow">
 
-  <!-- Catalog (masonry style) -->
+  <!-- Filters -->
+  <div id="filters" class="flex flex-wrap justify-center gap-2 p-4">
+    <button data-category="all" class="filter-btn bg-gray-300 text-sm px-3 py-1 rounded">All</button>
+    <button data-category="Floral" class="filter-btn bg-gray-300 text-sm px-3 py-1 rounded">Floral</button>
+    <button data-category="Animals" class="filter-btn bg-gray-300 text-sm px-3 py-1 rounded">Animals</button>
+    <button data-category="Holiday" class="filter-btn bg-gray-300 text-sm px-3 py-1 rounded">Holiday</button>
+  </div>
+
+  <!-- Catalog -->
   <main id="catalog" class="p-4">
-    <!-- карточки добавятся через JS -->
+    <!-- Cards added by JS -->
   </main>
 
   <!-- Footer -->
@@ -33,27 +41,49 @@
     &copy; 2025 My Affiliate Catalog
   </footer>
 
+  <!-- JavaScript -->
   <script>
+    let allData = [];
     fetch('/svg-bundles-catalog/data/catalog.json')
       .then(res => res.json())
       .then(data => {
-        const catalog = document.getElementById('catalog');
-        data.forEach(item => {
-          const card = document.createElement('a');
-          card.href = item.link;
-          card.target = '_blank';
-          card.style.display = 'inline-block';
-          card.style.width = '100%';
-          card.className = 'mb-4 break-inside-avoid block bg-white border rounded-lg shadow overflow-hidden';
-          card.innerHTML = `
-            <img src="${item.image}" alt="${item.title}" class="w-full">
-            <div class="p-2 text-center">
-              <h3 class="font-semibold text-sm truncate">${item.title}</h3>
-              <p class="text-xs text-gray-600 truncate">${item.description}</p>
-            </div>`;
-          catalog.appendChild(card);
-        });
+        allData = data;
+        renderCards(data);
       });
+
+    function renderCards(data) {
+      const catalog = document.getElementById('catalog');
+      catalog.innerHTML = '';
+      data.forEach(item => {
+        const card = document.createElement('a');
+        card.href = item.link;
+        card.target = '_blank';
+        card.dataset.category = item.category;
+        card.style.display = 'inline-block';
+        card.style.width = '100%';
+        card.className = 'mb-4 break-inside-avoid block bg-white border rounded-lg shadow overflow-hidden';
+        card.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" class="w-full">
+          <div class="p-2 text-center">
+            <h3 class="font-semibold text-sm truncate">${item.title}</h3>
+            <p class="text-xs text-gray-600 truncate">${item.description}</p>
+            <a href="${item.link}" target="_blank" class="inline-block mt-2 bg-pink-500 text-white text-xs px-3 py-1 rounded hover:bg-pink-600">Download for Free</a>
+          </div>`;
+        catalog.appendChild(card);
+      });
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.dataset.category;
+        if (category === 'all') {
+          renderCards(allData);
+        } else {
+          const filtered = allData.filter(item => item.category === category);
+          renderCards(filtered);
+        }
+      });
+    });
   </script>
 
 </body>
