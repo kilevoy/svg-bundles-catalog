@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "image": "https://picsum.photos/400/600?random=100",
+    "title": "Demo SVG Bundle",
+    "description": "This is a demo bundle for testing the catalog.",
+    "link": "https://example.com"
+  }
+]
+
