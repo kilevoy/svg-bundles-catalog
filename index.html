@@ -5,22 +5,27 @@
   <title>SVG Bundles Catalog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #catalog {
+      column-count: 4;
+      column-gap: 1rem;
+    }
+    @media (max-width: 1024px) {
+      #catalog { column-count: 3; }
+    }
+    @media (max-width: 768px) {
+      #catalog { column-count: 2; }
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Header -->
-  <header class="p-4 text-center text-2xl font-bold bg-pink-100 shadow">
-    SVG Bundles Catalog
-  </header>
+  <!-- Banner (заменяет header) -->
+  <img src="/svg-bundles-catalog/data/Bundles.png" alt="Premium SVG Bundles" class="w-full shadow">
 
-  <!-- Banner -->
-  <div class="flex justify-center p-4">
-    <img src="/svg-bundles-catalog/data/Bundles.png" alt="Premium SVG Bundles" class="rounded-lg shadow max-w-full">
-  </div>
-
-  <!-- Main catalog grid -->
-  <main id="catalog" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-    <!-- Карточки будут динамически добавлены через JavaScript -->
+  <!-- Catalog (masonry style) -->
+  <main id="catalog" class="p-4">
+    <!-- карточки добавятся через JS -->
   </main>
 
   <!-- Footer -->
@@ -28,7 +33,6 @@
     &copy; 2025 My Affiliate Catalog
   </footer>
 
-  <!-- JavaScript fetch -->
   <script>
     fetch('/svg-bundles-catalog/data/catalog.json')
       .then(res => res.json())
@@ -38,20 +42,17 @@
           const card = document.createElement('a');
           card.href = item.link;
           card.target = '_blank';
-          card.className = 'block bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition duration-300 overflow-hidden';
+          card.style.display = 'inline-block';
+          card.style.width = '100%';
+          card.className = 'mb-4 break-inside-avoid block bg-white border rounded-lg shadow overflow-hidden';
           card.innerHTML = `
-            <div class="w-full aspect-[9/16] overflow-hidden">
-              <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover">
-            </div>
+            <img src="${item.image}" alt="${item.title}" class="w-full">
             <div class="p-2 text-center">
-              <h3 class="font-semibold text-base truncate">${item.title}</h3>
+              <h3 class="font-semibold text-sm truncate">${item.title}</h3>
               <p class="text-xs text-gray-600 truncate">${item.description}</p>
             </div>`;
           catalog.appendChild(card);
         });
-      })
-      .catch(error => {
-        console.error('Ошибка загрузки данных:', error);
       });
   </script>
 
