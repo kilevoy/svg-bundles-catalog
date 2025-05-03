@@ -1,58 +1,50 @@
 [
   {
-    "image": "https://picsum.photos/400/600?random=1",
-    "title": "Floral SVG Bundle 1",
-    "description": "Beautiful floral designs.",
-    "link": "https://example.com/1",
-    "category": "Floral"
+    "title": "Halloween SVG Bundle: Spooky Designs",
+    "category": "halloween",
+    "imageUrl": "data/halloween/halloween-bundle-1.jpg",
+    "link": "https://www.creativefabrica.com/product/halloween-bundle-1/?ref=yourrefid"
   },
   {
-    "image": "https://picsum.photos/400/600?random=2",
-    "title": "Animals SVG Bundle 1",
-    "description": "Cute animals pack.",
-    "link": "https://example.com/2",
-    "category": "Animals"
+    "title": "Floral SVG Bundle: Elegant Flowers",
+    "category": "floral",
+    "imageUrl": "data/floral/floral-bundle-1.jpg",
+    "link": "https://www.creativefabrica.com/product/floral-bundle-1/?ref=yourrefid"
   },
   {
-    "image": "https://picsum.photos/400/600?random=3",
-    "title": "Holiday SVG Bundle 1",
-    "description": "Festive holiday set.",
-    "link": "https://example.com/3",
-    "category": "Holiday"
+    "title": "Farmhouse SVG Bundle: Rustic Charm",
+    "category": "farmhouse",
+    "imageUrl": "data/farmhouse/farmhouse-bundle-1.jpg",
+    "link": "https://www.creativefabrica.com/product/farmhouse-bundle-1/?ref=yourrefid"
   },
   {
-    "image": "https://picsum.photos/400/600?random=4",
-    "title": "Monogram SVG Bundle",
-    "description": "Elegant monogram letters.",
-    "link": "https://example.com/4",
-    "category": "Monogram"
+    "title": "Wedding SVG Bundle: Romantic Calligraphy",
+    "category": "wedding",
+    "imageUrl": "data/wedding/wedding-bundle-1.jpg",
+    "link": "https://www.creativefabrica.com/product/wedding-bundle-1/?ref=yourrefid"
   },
   {
-    "image": "https://picsum.photos/400/600?random=5",
-    "title": "Wedding SVG Bundle",
-    "description": "Romantic wedding designs.",
-    "link": "https://example.com/5",
-    "category": "Wedding"
+    "title": "Baby SVG Bundle: Cute Baby Designs",
+    "category": "baby",
+    "imageUrl": "data/baby/baby-bundle-1.jpg",
+    "link": "https://www.creativefabrica.com/product/baby-bundle-1/?ref=yourrefid"
   },
   {
-    "image": "https://picsum.photos/400/600?random=6",
-    "title": "Quotes SVG Bundle",
-    "description": "Inspirational quotes pack.",
-    "link": "https://example.com/6",
-    "category": "Quotes"
+    "title": "Funny SVG Bundle: Hilarious Quotes",
+    "category": "funny",
+    "imageUrl": "data/funny/funny-bundle-1.jpg",
+    "link": "https://www.creativefabrica.com/product/funny-bundle-1/?ref=yourrefid"
   },
   {
-    "image": "https://picsum.photos/400/600?random=7",
-    "title": "Sports SVG Bundle",
-    "description": "Sporty SVG designs.",
-    "link": "https://example.com/7",
-    "category": "Sports"
+    "title": "Inspirational SVG Bundle: Motivational Sayings",
+    "category": "inspirational",
+    "imageUrl": "data/inspirational/inspirational-bundle-1.jpg",
+    "link": "https://www.creativefabrica.com/product/inspirational-bundle-1/?ref=yourrefid"
   },
   {
-    "image": "https://picsum.photos/400/600?random=8",
-    "title": "Seasonal SVG Bundle",
-    "description": "Seasonal creative pack.",
-    "link": "https://example.com/8",
-    "category": "Seasonal"
+    "title": "Mandala SVG Bundle: Intricate Patterns",
+    "category": "mandala",
+    "imageUrl": "data/mandala/mandala-bundle-1.jpg",
+    "link": "https://www.creativefabrica.com/product/mandala-bundle-1/?ref=yourrefid"
   }
 ]
