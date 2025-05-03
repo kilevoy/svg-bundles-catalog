@@ -2,71 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>2025 CVG Catalog</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SVG Bundles Catalog</title>
   <style>
-    .active-filter { background-color: #4F46E5; color: white; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #fff;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    #gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+    .card h3 {
+      margin: 10px;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .card p {
+      margin: 0 10px 10px;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+    }
+    .btn {
+      display: block;
+      margin: 10px;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      text-align: center;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
   </style>
 </head>
-<body class="bg-gray-100">
+<body>
+  <header>
+    <h1>SVG Bundles Catalog</h1>
+  </header>
 
-  <!-- БАННЕР -->
-  <div class="w-full">
-    <img src="SVG Bundles.png" alt="Banner" class="w-full object-cover">
-  </div>
-
-  <!-- ФИЛЬТРЫ -->
-  <div class="flex flex-wrap justify-center gap-2 my-4">
-    <button class="px-3 py-1 border rounded filter-btn active-filter" onclick="filterCategory('all')">All</button>
-    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('halloween')">Halloween</button>
-    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('floral')">Floral</button>
-    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('farmhouse')">Farmhouse</button>
-    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('wedding')">Wedding</button>
-    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('baby')">Baby</button>
-    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('funny')">Funny</button>
-    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('inspirational')">Inspirational</button>
-    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('mandala')">Mandala</button>
-  </div>
-
-  <!-- ГРИД -->
-  <div id="catalog" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4"></div>
+  <div id="gallery"></div>
 
   <script>
-    let currentFilter = 'all';
-
-    function filterCategory(category) {
-      currentFilter = category;
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active-filter'));
-      document.querySelector(`.filter-btn[onclick="filterCategory('${category}')"]`).classList.add('active-filter');
-      document.querySelectorAll('.catalog-item').forEach(item => {
-        item.style.display = (category === 'all' || item.dataset.category === category) ? 'block' : 'none';
-      });
-    }
-
-    fetch('catalog.json')
+    fetch('data/catalog.json')
       .then(response => response.json())
       .then(data => {
-        const catalog = document.getElementById('catalog');
+        const gallery = document.getElementById('gallery');
         data.forEach(item => {
           const card = document.createElement('div');
-          card.className = 'catalog-item bg-white rounded shadow overflow-hidden';
-          card.dataset.category = item.category.toLowerCase();
+          card.className = 'card';
           card.innerHTML = `
-            <a href="${item.link}" target="_blank" class="block">
-              <img src="${item.imageUrl}" alt="${item.title}" class="w-full aspect-[9/16] object-cover">
-              <div class="p-2 text-center">
-                <h3 class="text-sm font-semibold">${item.title}</h3>
-                <button class="mt-2 px-3 py-1 bg-blue-500 text-white rounded text-sm">Download for free</button>
-              </div>
+            <a href="${item.link}" target="_blank">
+              <img src="${item.imageUrl}" alt="${item.title}">
             </a>
+            <h3>${item.title}</h3>
+            <p>Category: ${item.category}</p>
+            <a href="${item.link}" target="_blank" class="btn">Download for free</a>
           `;
-          catalog.appendChild(card);
+          gallery.appendChild(card);
         });
+      })
+      .catch(error => {
+        console.error('Error loading catalog:', error);
       });
   </script>
-
-  <footer class="text-center text-gray-500 text-sm my-4">
-    &copy; 2025 CVG Catalog
-  </footer>
 </body>
 </html>
