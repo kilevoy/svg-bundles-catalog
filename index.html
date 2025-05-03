@@ -16,6 +16,10 @@
     @media (max-width: 768px) {
       #catalog { column-count: 2; }
     }
+    .active-filter {
+      background-color: #ec4899; /* pink-500 */
+      color: white;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -43,7 +47,7 @@
 
   <!-- Footer -->
   <footer class="p-4 text-center text-sm text-gray-500">
-    &copy; 2025 My Affiliate Catalog
+    &copy; 2025 CVG Catalog
   </footer>
 
   <!-- JavaScript -->
@@ -78,8 +82,14 @@
       });
     }
 
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
+        // Удаляем подсветку со всех кнопок
+        filterButtons.forEach(b => b.classList.remove('active-filter'));
+        // Добавляем подсветку на выбранную
+        btn.classList.add('active-filter');
+
         const category = btn.dataset.category;
         if (category === 'all') {
           renderCards(allData);
