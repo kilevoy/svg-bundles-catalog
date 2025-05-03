@@ -26,14 +26,14 @@
   <!-- Filters -->
   <div id="filters" class="flex flex-wrap justify-center gap-2 p-4">
     <button data-category="all" class="filter-btn bg-pink-500 text-white text-sm px-3 py-1 rounded">All</button>
-    <button data-category="Floral" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Floral</button>
-    <button data-category="Animals" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Animals</button>
-    <button data-category="Holiday" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Holiday</button>
-    <button data-category="Monogram" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Monogram</button>
-    <button data-category="Wedding" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Wedding</button>
-    <button data-category="Quotes" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Quotes</button>
-    <button data-category="Sports" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Sports</button>
-    <button data-category="Seasonal" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Seasonal</button>
+    <button data-category="halloween" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Halloween</button>
+    <button data-category="floral" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Floral</button>
+    <button data-category="farmhouse" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Farmhouse</button>
+    <button data-category="wedding" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Wedding</button>
+    <button data-category="baby" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Baby</button>
+    <button data-category="funny" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Funny</button>
+    <button data-category="inspirational" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Inspirational</button>
+    <button data-category="mandala" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Mandala</button>
   </div>
 
   <!-- Catalog -->
@@ -81,12 +81,10 @@
     const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        // Reset all buttons
         filterButtons.forEach(b => {
           b.classList.remove('bg-pink-500', 'text-white');
           b.classList.add('bg-gray-300', 'text-black');
         });
-        // Activate clicked button
         btn.classList.add('bg-pink-500', 'text-white');
         btn.classList.remove('bg-gray-300', 'text-black');
 
