@@ -2,104 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SVG Bundles Catalog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2025 CVG Catalog</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    #catalog {
-      column-count: 4;
-      column-gap: 1rem;
-    }
-    @media (max-width: 1024px) {
-      #catalog { column-count: 3; }
-    }
-    @media (max-width: 768px) {
-      #catalog { column-count: 2; }
-    }
+    .active-filter { background-color: #4F46E5; color: white; }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100">
 
-  <!-- Banner -->
-  <img src="/svg-bundles-catalog/data/Bundles.png" alt="Premium SVG Bundles" class="w-full shadow">
-
-  <!-- Filters -->
-  <div id="filters" class="flex flex-wrap justify-center gap-2 p-4">
-    <button data-category="all" class="filter-btn bg-pink-500 text-white text-sm px-3 py-1 rounded">All</button>
-    <button data-category="Floral" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Floral</button>
-    <button data-category="Animals" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Animals</button>
-    <button data-category="Holiday" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Holiday</button>
-    <button data-category="Monogram" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Monogram</button>
-    <button data-category="Wedding" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Wedding</button>
-    <button data-category="Quotes" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Quotes</button>
-    <button data-category="Sports" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Sports</button>
-    <button data-category="Seasonal" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Seasonal</button>
+  <!-- БАННЕР -->
+  <div class="w-full">
+    <img src="SVG Bundles.png" alt="Banner" class="w-full object-cover">
   </div>
 
-  <!-- Catalog -->
-  <main id="catalog" class="p-4">
-    <!-- Cards will be added dynamically -->
-  </main>
+  <!-- ФИЛЬТРЫ -->
+  <div class="flex flex-wrap justify-center gap-2 my-4">
+    <button class="px-3 py-1 border rounded filter-btn active-filter" onclick="filterCategory('all')">All</button>
+    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('halloween')">Halloween</button>
+    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('floral')">Floral</button>
+    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('farmhouse')">Farmhouse</button>
+    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('wedding')">Wedding</button>
+    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('baby')">Baby</button>
+    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('funny')">Funny</button>
+    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('inspirational')">Inspirational</button>
+    <button class="px-3 py-1 border rounded filter-btn" onclick="filterCategory('mandala')">Mandala</button>
+  </div>
 
-  <!-- Footer -->
-  <footer class="p-4 text-center text-sm text-gray-500">
-    &copy; 2025 CVG Catalog
-  </footer>
+  <!-- ГРИД -->
+  <div id="catalog" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4"></div>
 
-  <!-- JavaScript -->
   <script>
-    let allData = [];
-    fetch('/svg-bundles-catalog/data/catalog.json')
-      .then(res => res.json())
-      .then(data => {
-        allData = data;
-        renderCards(data);
-      });
+    let currentFilter = 'all';
 
-    function renderCards(data) {
-      const catalog = document.getElementById('catalog');
-      catalog.innerHTML = '';
-      data.forEach(item => {
-        const card = document.createElement('a');
-        card.href = item.link;
-        card.target = '_blank';
-        card.dataset.category = item.category;
-        card.style.display = 'inline-block';
-        card.style.width = '100%';
-        card.className = 'mb-4 break-inside-avoid block bg-white border rounded-lg shadow overflow-hidden';
-        card.innerHTML = `
-          <img src="${item.image}" alt="${item.title}" class="w-full">
-          <div class="p-2 text-center">
-            <h3 class="font-semibold text-sm truncate">${item.title}</h3>
-            <p class="text-xs text-gray-600 truncate">${item.description}</p>
-            <a href="${item.link}" target="_blank" class="inline-block mt-2 bg-pink-500 text-white text-xs px-3 py-1 rounded hover:bg-pink-600">Download for Free</a>
-          </div>`;
-        catalog.appendChild(card);
+    function filterCategory(category) {
+      currentFilter = category;
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active-filter'));
+      document.querySelector(`.filter-btn[onclick="filterCategory('${category}')"]`).classList.add('active-filter');
+      document.querySelectorAll('.catalog-item').forEach(item => {
+        item.style.display = (category === 'all' || item.dataset.category === category) ? 'block' : 'none';
       });
     }
 
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Reset all buttons
-        filterButtons.forEach(b => {
-          b.classList.remove('bg-pink-500', 'text-white');
-          b.classList.add('bg-gray-300', 'text-black');
+    fetch('catalog.json')
+      .then(response => response.json())
+      .then(data => {
+        const catalog = document.getElementById('catalog');
+        data.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'catalog-item bg-white rounded shadow overflow-hidden';
+          card.dataset.category = item.category.toLowerCase();
+          card.innerHTML = `
+            <a href="${item.link}" target="_blank" class="block">
+              <img src="${item.imageUrl}" alt="${item.title}" class="w-full aspect-[9/16] object-cover">
+              <div class="p-2 text-center">
+                <h3 class="text-sm font-semibold">${item.title}</h3>
+                <button class="mt-2 px-3 py-1 bg-blue-500 text-white rounded text-sm">Download for free</button>
+              </div>
+            </a>
+          `;
+          catalog.appendChild(card);
         });
-        // Activate clicked button
-        btn.classList.add('bg-pink-500', 'text-white');
-        btn.classList.remove('bg-gray-300', 'text-black');
-
-        const category = btn.dataset.category;
-        if (category === 'all') {
-          renderCards(allData);
-        } else {
-          const filtered = allData.filter(item => item.category === category);
-          renderCards(filtered);
-        }
       });
-    });
   </script>
 
+  <footer class="text-center text-gray-500 text-sm my-4">
+    &copy; 2025 CVG Catalog
+  </footer>
 </body>
 </html>
