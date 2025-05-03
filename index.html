@@ -33,9 +33,9 @@
           const card = document.createElement('a');
           card.href = item.link;
           card.target = '_blank';
-          card.className = 'block bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition duration-300';
+          card.className = 'block bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition duration-300 overflow-hidden';
           card.innerHTML = `
-            <img src="${item.image}" alt="${item.title}" class="w-full h-auto object-cover rounded-t-lg">
+            <img src="${item.image}" alt="${item.title}" class="w-full h-80 object-cover rounded-t-lg">
             <div class="p-4 text-center">
               <h3 class="font-semibold text-lg mb-2">${item.title}</h3>
               <p class="text-sm text-gray-600">${item.description}</p>
