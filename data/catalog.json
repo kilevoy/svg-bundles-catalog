@@ -2,57 +2,57 @@
   {
     "image": "https://picsum.photos/400/600?random=1",
     "title": "Floral SVG Bundle 1",
-    "description": "A beautiful floral SVG bundle.",
+    "description": "Beautiful floral designs.",
     "link": "https://example.com/1",
     "category": "Floral"
   },
   {
     "image": "https://picsum.photos/400/600?random=2",
     "title": "Animals SVG Bundle 1",
-    "description": "Cute animals SVG bundle.",
+    "description": "Cute animals pack.",
     "link": "https://example.com/2",
     "category": "Animals"
   },
   {
     "image": "https://picsum.photos/400/600?random=3",
     "title": "Holiday SVG Bundle 1",
-    "description": "Festive holiday SVG bundle.",
+    "description": "Festive holiday set.",
     "link": "https://example.com/3",
     "category": "Holiday"
   },
   {
     "image": "https://picsum.photos/400/600?random=4",
-    "title": "Floral SVG Bundle 2",
-    "description": "Another floral SVG bundle.",
+    "title": "Monogram SVG Bundle",
+    "description": "Elegant monogram letters.",
     "link": "https://example.com/4",
-    "category": "Floral"
+    "category": "Monogram"
   },
   {
     "image": "https://picsum.photos/400/600?random=5",
-    "title": "Animals SVG Bundle 2",
-    "description": "More animals SVGs.",
+    "title": "Wedding SVG Bundle",
+    "description": "Romantic wedding designs.",
     "link": "https://example.com/5",
-    "category": "Animals"
+    "category": "Wedding"
   },
   {
     "image": "https://picsum.photos/400/600?random=6",
-    "title": "Holiday SVG Bundle 2",
-    "description": "Holiday SVG pack.",
+    "title": "Quotes SVG Bundle",
+    "description": "Inspirational quotes pack.",
     "link": "https://example.com/6",
-    "category": "Holiday"
+    "category": "Quotes"
   },
   {
     "image": "https://picsum.photos/400/600?random=7",
-    "title": "Floral SVG Bundle 3",
-    "description": "Third floral pack.",
+    "title": "Sports SVG Bundle",
+    "description": "Sporty SVG designs.",
     "link": "https://example.com/7",
-    "category": "Floral"
+    "category": "Sports"
   },
   {
     "image": "https://picsum.photos/400/600?random=8",
-    "title": "Animals SVG Bundle 3",
-    "description": "Third animals pack.",
+    "title": "Seasonal SVG Bundle",
+    "description": "Seasonal creative pack.",
     "link": "https://example.com/8",
-    "category": "Animals"
+    "category": "Seasonal"
   }
 ]
