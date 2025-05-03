@@ -1,9 +1,50 @@
 [
   {
-    "image": "https://picsum.photos/400/600?random=100",
-    "title": "Demo SVG Bundle",
+    "image": "https://picsum.photos/400/600?random=1",
+    "title": "Demo SVG Bundle 1",
+    "description": "This is a demo bundle for testing the catalog.",
+    "link": "https://example.com"
+  },
+  {
+    "image": "https://picsum.photos/400/600?random=2",
+    "title": "Demo SVG Bundle 2",
+    "description": "This is a demo bundle for testing the catalog.",
+    "link": "https://example.com"
+  },
+  {
+    "image": "https://picsum.photos/400/600?random=3",
+    "title": "Demo SVG Bundle 3",
+    "description": "This is a demo bundle for testing the catalog.",
+    "link": "https://example.com"
+  },
+  {
+    "image": "https://picsum.photos/400/600?random=4",
+    "title": "Demo SVG Bundle 4",
+    "description": "This is a demo bundle for testing the catalog.",
+    "link": "https://example.com"
+  },
+  {
+    "image": "https://picsum.photos/400/600?random=5",
+    "title": "Demo SVG Bundle 5",
+    "description": "This is a demo bundle for testing the catalog.",
+    "link": "https://example.com"
+  },
+  {
+    "image": "https://picsum.photos/400/600?random=6",
+    "title": "Demo SVG Bundle 6",
+    "description": "This is a demo bundle for testing the catalog.",
+    "link": "https://example.com"
+  },
+  {
+    "image": "https://picsum.photos/400/600?random=7",
+    "title": "Demo SVG Bundle 7",
+    "description": "This is a demo bundle for testing the catalog.",
+    "link": "https://example.com"
+  },
+  {
+    "image": "https://picsum.photos/400/600?random=8",
+    "title": "Demo SVG Bundle 8",
     "description": "This is a demo bundle for testing the catalog.",
     "link": "https://example.com"
   }
 ]
-
