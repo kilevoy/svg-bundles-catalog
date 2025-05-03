@@ -1,50 +1,58 @@
 [
   {
     "image": "https://picsum.photos/400/600?random=1",
-    "title": "Demo SVG Bundle 1",
-    "description": "This is a demo bundle for testing the catalog.",
-    "link": "https://example.com"
+    "title": "Floral SVG Bundle 1",
+    "description": "A beautiful floral SVG bundle.",
+    "link": "https://example.com/1",
+    "category": "Floral"
   },
   {
     "image": "https://picsum.photos/400/600?random=2",
-    "title": "Demo SVG Bundle 2",
-    "description": "This is a demo bundle for testing the catalog.",
-    "link": "https://example.com"
+    "title": "Animals SVG Bundle 1",
+    "description": "Cute animals SVG bundle.",
+    "link": "https://example.com/2",
+    "category": "Animals"
   },
   {
     "image": "https://picsum.photos/400/600?random=3",
-    "title": "Demo SVG Bundle 3",
-    "description": "This is a demo bundle for testing the catalog.",
-    "link": "https://example.com"
+    "title": "Holiday SVG Bundle 1",
+    "description": "Festive holiday SVG bundle.",
+    "link": "https://example.com/3",
+    "category": "Holiday"
   },
   {
     "image": "https://picsum.photos/400/600?random=4",
-    "title": "Demo SVG Bundle 4",
-    "description": "This is a demo bundle for testing the catalog.",
-    "link": "https://example.com"
+    "title": "Floral SVG Bundle 2",
+    "description": "Another floral SVG bundle.",
+    "link": "https://example.com/4",
+    "category": "Floral"
   },
   {
     "image": "https://picsum.photos/400/600?random=5",
-    "title": "Demo SVG Bundle 5",
-    "description": "This is a demo bundle for testing the catalog.",
-    "link": "https://example.com"
+    "title": "Animals SVG Bundle 2",
+    "description": "More animals SVGs.",
+    "link": "https://example.com/5",
+    "category": "Animals"
   },
   {
     "image": "https://picsum.photos/400/600?random=6",
-    "title": "Demo SVG Bundle 6",
-    "description": "This is a demo bundle for testing the catalog.",
-    "link": "https://example.com"
+    "title": "Holiday SVG Bundle 2",
+    "description": "Holiday SVG pack.",
+    "link": "https://example.com/6",
+    "category": "Holiday"
   },
   {
     "image": "https://picsum.photos/400/600?random=7",
-    "title": "Demo SVG Bundle 7",
-    "description": "This is a demo bundle for testing the catalog.",
-    "link": "https://example.com"
+    "title": "Floral SVG Bundle 3",
+    "description": "Third floral pack.",
+    "link": "https://example.com/7",
+    "category": "Floral"
   },
   {
     "image": "https://picsum.photos/400/600?random=8",
-    "title": "Demo SVG Bundle 8",
-    "description": "This is a demo bundle for testing the catalog.",
-    "link": "https://example.com"
+    "title": "Animals SVG Bundle 3",
+    "description": "Third animals pack.",
+    "link": "https://example.com/8",
+    "category": "Animals"
   }
 ]
