@@ -14,7 +14,7 @@
   </header>
 
   <!-- Main catalog grid -->
-  <main id="catalog" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+  <main id="catalog" class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
     <!-- Карточки будут динамически добавлены через JavaScript -->
   </main>
 
@@ -35,10 +35,12 @@
           card.target = '_blank';
           card.className = 'block bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition duration-300 overflow-hidden';
           card.innerHTML = `
-            <img src="${item.image}" alt="${item.title}" class="w-full h-80 object-cover rounded-t-lg">
-            <div class="p-4 text-center">
-              <h3 class="font-semibold text-lg mb-2">${item.title}</h3>
-              <p class="text-sm text-gray-600">${item.description}</p>
+            <div class="w-full aspect-[9/16] overflow-hidden">
+              <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover">
+            </div>
+            <div class="p-2 text-center">
+              <h3 class="font-semibold text-base truncate">${item.title}</h3>
+              <p class="text-xs text-gray-600 truncate">${item.description}</p>
             </div>`;
           catalog.appendChild(card);
         });
