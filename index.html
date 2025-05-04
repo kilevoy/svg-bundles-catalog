@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -34,20 +34,20 @@
 
   <!-- Filters -->
   <div id="filters" class="flex flex-wrap justify-center gap-2 p-4">
-    <button data-category="all" class="filter-btn bg-pink-500 text-white text-sm px-3 py-1 rounded">All</button>
-    <button data-category="Floral" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Floral</button>
-    <button data-category="Animals" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Animals</button>
-    <button data-category="Holiday" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Holiday</button>
+    <button data-category="all"      class="filter-btn bg-pink-500 text-white text-sm px-3 py-1 rounded">All</button>
+    <button data-category="Floral"   class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Floral</button>
+    <button data-category="Animals"  class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Animals</button>
+    <button data-category="Holiday"  class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Holiday</button>
     <button data-category="Monogram" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Monogram</button>
-    <button data-category="Wedding" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Wedding</button>
-    <button data-category="Quotes" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Quotes</button>
-    <button data-category="Sports" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Sports</button>
+    <button data-category="Wedding"  class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Wedding</button>
+    <button data-category="Quotes"   class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Quotes</button>
+    <button data-category="Sports"   class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Sports</button>
     <button data-category="Seasonal" class="filter-btn bg-gray-300 text-black text-sm px-3 py-1 rounded">Seasonal</button>
   </div>
 
   <!-- Catalog -->
   <main id="catalog" class="p-4">
-    <!-- Cards will be added dynamically -->
+    <!-- Cards будут добавлены динамически -->
   </main>
 
   <!-- Footer -->
@@ -62,7 +62,7 @@
       .then(res => res.json())
       .then(data => {
         allData = data;
-        renderCards(data);
+        renderCards(allData);
       });
 
     function renderCards(data) {
@@ -72,14 +72,16 @@
         const card = document.createElement('a');
         card.href = item.link;
         card.target = '_blank';
-        card.dataset.category = item.category;
         card.className = 'bg-white border rounded-lg shadow overflow-hidden flex flex-col';
         card.innerHTML = `
           <img src="${item.image}" alt="${item.title}" class="w-full">
           <div class="p-2 text-center flex flex-col flex-grow">
             <h3 class="font-semibold text-sm truncate">${item.title}</h3>
             <p class="text-xs text-gray-600 line-clamp-3">${item.description}</p>
-            <a href="${item.link}" target="_blank" class="mt-auto inline-block bg-pink-500 text-white text-xs px-3 py-1 rounded hover:bg-pink-600">Download for Free</a>
+            <a href="${item.link}" target="_blank"
+               class="mt-auto inline-block bg-pink-500 text-white text-xs px-3 py-1 rounded hover:bg-pink-600">
+              Download for Free
+            </a>
           </div>`;
         catalog.appendChild(card);
       });
@@ -88,21 +90,25 @@
     const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        // Reset all buttons
+        // сброс стилей всех кнопок
         filterButtons.forEach(b => {
           b.classList.remove('bg-pink-500', 'text-white');
           b.classList.add('bg-gray-300', 'text-black');
         });
-        // Activate clicked button
+        // выделяем текущую
         btn.classList.add('bg-pink-500', 'text-white');
         btn.classList.remove('bg-gray-300', 'text-black');
 
-        const category = btn.dataset.category;
-        if (category === 'all') {
+        // Нормализуем регистр:
+        const selected = btn.dataset.category.toLowerCase();
+
+        if (selected === 'all') {
           renderCards(allData);
         } else {
-          const filtered = allData.filter(item => item.category === category);
-          renderCards(filtered);
+          // Сравниваем с тем, что лежит в JSON:
+          renderCards(
+            allData.filter(item => item.category.toLowerCase() === selected)
+          );
         }
       });
     });
